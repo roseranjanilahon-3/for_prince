@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Bby Boy 🤍</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background: #050505;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .page {
+        display: none;
+        min-height: 100vh;
+        padding: 60px 25px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .active {
+        display: flex;
+    }
+
+    h1 {
+        font-size: 38px;
+        letter-spacing: 3px;
+        margin-bottom: 25px;
+    }
+
+    h2 {
+        font-size: 25px;
+        letter-spacing: 2px;
+        color: #ff304f;
+        margin: 20px 0 30px;
+    }
+
+    p {
+        max-width: 850px;
+        line-height: 1.8;
+        font-size: 17px;
+        white-space: pre-line;
+    }
+
+    .heart {
+        font-size: 70px;
+        color: #ff304f;
+        animation: pulse 1.2s infinite;
+        margin-bottom: 25px;
+    }
+
+    @keyframes pulse {
+        50% {
+            transform: scale(1.18);
+        }
+    }
+
+    button {
+        background: white;
+        color: black;
+        border: none;
+        padding: 13px 28px;
+        margin: 10px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    .red {
+        background: #ff304f;
+        color: white;
+    }
+
+    .choice {
+        min-width: 180px;
+    }
+
+    #noBtn {
+        position: relative;
+    }
+
+    .small {
+        color: #aaa;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .final-text {
+        text-align: left;
+        background: #0b0b0b;
+        border: 1px solid #242424;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 25px rgba(255, 48, 79, 0.08);
+    }
+
+    .final-heading {
+        color: white;
+        font-size: 34px;
+        margin-bottom: 10px;
+    }
+
+    .love-line {
+        color: #ff304f;
+        font-size: 20px;
+        margin-top: 30px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<section id="page1" class="page active">
+
+    <div class="heart">♥</div>
+
+    <h1>FOR YOU.</h1>
+
+    <p>I've been keeping something for you.</p>
+
+    <button class="red" onclick="showPage('page2')">
+        ENTER
+    </button>
+
+</section>
+
+
+<!-- LOVE QUESTION -->
+<section id="page2" class="page">
+
+    <h1>DO YOU LOVE ME?</h1>
+
+    <div>
+        <button class="red" onclick="showPage('page3')">
+            YES 🤍
+        </button>
+
+        <button id="noBtn" onclick="moveNo()">
+            NO
+        </button>
+    </div>
+
+</section>
+
+
+<!-- GOOD CHOICE -->
+<section id="page3" class="page">
+
+    <div class="heart">♥</div>
+
+    <h1>GOOD CHOICE.</h1>
+
+    <p>Now let's see how well you know me.</p>
+
+    <button class="red" onclick="showPage('quiz1')">
+        CONTINUE
+    </button>
+
+</section>
+
+
+<!-- QUIZ 1 -->
+<section id="quiz1" class="page">
+
+    <h1>QUESTION 1</h1>
+
+    <p>WHAT'S MY FAVOURITE COLOUR?</p>
+
+    <button class="choice" onclick="wrong(this)">BLACK</button>
+    <button class="choice" onclick="wrong(this)">WHITE</button>
+    <button class="choice" onclick="correct('quiz1','quiz2')">GREY</button>
+    <button class="choice" onclick="wrong(this)">RED</button>
+
+    <p class="small">Choose carefully. 👀</p>
+
+</section>
+
+
+<!-- QUIZ 2 -->
+<section id="quiz2" class="page">
+
+    <h1>QUESTION 2</h1>
+
+    <p>WHAT DO I ALWAYS SAY?</p>
+
+    <button class="choice" onclick="correct('quiz2','quiz3')">
+        Mur bhuk lagisee
+    </button>
+
+    <button class="choice" onclick="wrong(this)">
+        Mur tpnii ahise
+    </button>
+
+    <button class="choice" onclick="wrong(this)">
+        Mur murtu
+    </button>
+
+</section>
+
+
+<!-- QUIZ 3 -->
+<section id="quiz3" class="page">
+
+    <h1>QUESTION 3</h1>
+
+    <p>WHAT KIND OF AFFECTION DO I LIKE MOST?</p>
+
+    <button class="choice" onclick="wrong(this)">
+        HUGS
+    </button>
+
+    <button class="choice" onclick="wrong(this)">
+        HOLDING HANDS
+    </button>
+
+    <button class="choice" onclick="correct('quiz3','success')">
+        CHEEK KISSES
+    </button>
+
+</section>
+
+
+<!-- SUCCESS -->
+<section id="success" class="page">
+
+    <div class="heart">♥</div>
+
+    <h1>YOU KNOW ME.</h1>
+
+    <p>Okayyy, maybe you deserve the last part. 🤍</p>
+
+    <button class="red" onclick="showPage('final')">
+        ONE LAST THING
+    </button>
+
+</section>
+
+
+<!-- FINAL -->
+<section id="final" class="page">
+
+    <h1 class="final-heading">ONE LAST THING.</h1>
+
+    <h2>HAPPY BOYFRIEND'S DAY</h2>
+
+    <div class="final-text">
+
+        <p>
+Happy Boyfriend's Day my bby boy&lt;3
+
+I LOVEE YOU SMCH MA BBIE🤍!! Ur theeee BESTT boifrenn!!!! and am so so luckyyy
+to have you as the LOML 😛 U DAA PERFECTTTT my love😋
+
+besi english t kole prithijoy r mnt pribo tur xkrnei enkei komm🥀soo I'll be honest today
+jundina first tuk dkhisu haaa I literally felt something njnu ki kntu kiba tu hoi wo cnfirm tha, then months later njnu kr pa emn bsi feelings ahi gl ruu kku kbou nuaru ttya moi kntu mneee emn e bsi overwhelming hoi goisil chtgpt k kou tur ktha and I was not even sure je moi xsai bhl pau ne nai ruu xsa kbo gle bhbisilu mere aukaat se bahar hai woh literally xdai bhbu etu e, kntu yk tur nsna tu nhoi moi teeee jiuu hoi njaok muk ttyaaa tu lgeee mneee lgeee at any cost teee ttyaiii jnoi ru ki ki hll soo yhh aami ahar pstu I was not able to believe je ami ahilu eklgeee ru enka lgi asil toi 2dintei bore hoi jbi armse but still moi bhbi thoisilu jee at least 2din tu plu tar lgtt mnee emn tu lvl r pgl hoi goisilu haaaaa
+
+uske baad lahe lahe I felt fuck moi sn xsai bht bhal pau eyk legit kndi dlu xru xru ktht, namatilee thkibou nuaruu, aji lke moi nijr ego down kri nplu kntu tur agt tnka eku nlgei mne njei ahi jau enka feel hoi although he's just my bby nd ahi jau ulta tuke monabole.
+
+Agote jibur cringe lgisil nh aji kli nlga hl beh mur tuk pua pa njnu kio like emnnn kom dinot emnnnnnnnnnnnn efforts dso nhhh toiii emnn bsi emnnn expect ei kra nsilu reh tur pra mukkk emnn buji pao sb ktha xuno taku njei njei moi eku kboi nlge, emnnnn respect koro, emnn bsi gentle mnee ufff eku flaw e nai and most importantly beh dailyyyyy sorry koi daily constant reassurance dyo rehhh jntu mur sbtse dngr need, nd xetu tuk moi nkuakei toi njei njei kri dili.
+
+Njnu tur mur uprt thka emn al bal snta knke atram kntuuu I'll tryyy and believe mee tuk tu emn xntit eneu eri njau moi bujisooo 😌
+
+I will always stick to you 4ever &lt;3 😛ik toi promise t bissax nkroo kntu mur uprt yu koro SOOO trust me we gonna make this work ndddd urrrrrrrr THEEEEEEEE PERFECT AND BEST BOIFREN i couldn't even ever imagine of.
+
+I just want u to take care of urself and be thee most happiest one alivee🤍Always love urself cz Y nottttttttttt huh? U daaaaa MOSTT SWEETEST PRETTIEST BOYY alivee.
+
+AALABIUUUUU  SMCHH PUALI🫶 ru jno tur lgt jtyr pra ahisu nhh mur mental health tu emn bsi stable hoise nh legit tur krne mne moiiiiii ekuuuuuuuu e stress loi thkibo nlgeeee ekuuu eee naiii  emneee bsiiiiiii bhl toi reehhh
+
+THANK YOUUU for being mine like abhi kuch dino se ykk everything feels sooo goodd YOU LITERALLY GAVE ME MY SMILE BACK.
+
+Njnu knke express krimmm bht bsii bhal pau beh tuk ik oxnti kru bht moi kntu never ever leave me behhh now I just can't even imagine a life without you, your support, your love, your care and and andd THATTT CUTE SMILE OF URS🫠
+
+once again HAPPY BOYFRIEND'S DAY LOVEE!
+
+Nd bby just know that I love you smch and that's  never gonna change.
+        </p>
+
+    </div>
+
+    <p class="love-line">
+        🤍 ALWAYS YOURS 🤍
+    </p>
+
+    <!-- SONG WILL BE ADDED HERE LATER -->
+
+</section>
+
+
+<script>
+
+function showPage(pageId) {
+
+    let pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    window.scrollTo(0, 0);
+}
+
+
+function moveNo() {
+
+    let button = document.getElementById("noBtn");
+
+    let x = Math.floor(Math.random() * 300) - 150;
+    let y = Math.floor(Math.random() * 200) - 100;
+
+    button.style.transform =
+        "translate(" + x + "px, " + y + "px)";
+}
+
+
+function wrong(button) {
+
+    button.innerHTML = "NOPE 😭";
+
+    setTimeout(function() {
+        button.innerHTML = button.getAttribute("data-original") || "TRY AGAIN";
+    }, 700);
+}
+
+
+function correct(currentPage, nextPage) {
+
+    showPage(nextPage);
+}
+
+</script>
+
+</body>
+</html>
